@@ -17,7 +17,6 @@ spring:
   hazelcast:
     config:
       classpath: hazelcast.yaml
-
 open-api:
   kakao:
     host: https://dapi.kakao.com
@@ -32,6 +31,9 @@ open-api:
     client-secret:
       - SRGYV
       - g4RRx
+logging:
+  level:
+    com.hazelcast: ERROR
 
 resilience4j:
   retry:
