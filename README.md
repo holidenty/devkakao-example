@@ -8,7 +8,7 @@
 - JUnit 5
 
 ### Jar 파일 링크
-https://github.com/bitosh/my-assignment/releases/download/blog-search-0.0.1-SNAPSHOT/blog-search-application-0.0.1-SNAPSHOT.jar
+https://github.com/bitosh/my-assignment/releases/download/release-0.0.1-SNAPSHOT/blog-search-application-0.0.1-SNAPSHOT.jar
 
 ### 빌드 및 실행
 ```shell
