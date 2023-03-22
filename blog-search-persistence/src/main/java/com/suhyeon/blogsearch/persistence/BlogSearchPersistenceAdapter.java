@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import com.hazelcast.core.HazelcastInstance;
@@ -45,8 +44,7 @@ public class BlogSearchPersistenceAdapter implements BlogSearchKeywordPort {
         }
     }
 
-    @Transactional
-    public void incrementAndSaveKeywordCount(String keyword) {
+    private void incrementAndSaveKeywordCount(String keyword) {
         var blogSearchKeyword = blogSearchKeywordRepository.findByKeyword(keyword)
                                                            .map(this::incrementCount)
                                                            .orElseGet(() -> new BlogSearchKeyword(keyword));
