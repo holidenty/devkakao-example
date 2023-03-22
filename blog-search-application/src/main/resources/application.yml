@@ -1,0 +1,64 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+  datasource:
+    url: jdbc:h2:mem:blogsearch
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  hazelcast:
+    config:
+      classpath: hazelcast.yaml
+
+open-api:
+  kakao:
+    host: https://dapi.kakao.com
+    rest-api-key:
+      - 5d3adcba608d09bb
+      - 28cc0a1477cc5897
+  naver:
+    host: https://openapi.naver.com
+    client-id:
+      - nhp6GPERKW
+      - laTP9TYqY7
+    client-secret:
+      - SRGYV
+      - g4RRx
+
+resilience4j:
+  retry:
+    configs:
+      default:
+        max-attempts: 3
+        wait-duration: 100
+        retry-exceptions:
+          - org.springframework.web.reactive.function.client.WebClientRequestException
+    instances:
+      kakaoClient:
+          baseConfig: default
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 60s
+        slow-call-rate-threshold: 100
+        slow-call-duration-threshold: 2s
+        permitted-number-of-calls-in-half-open-state: 3
+        minimum-number-of-calls: 10
+        automatic-transition-from-open-to-half-open-enabled: true
+    instances:
+      kakaoClient:
+        baseConfig: default
+        record-exceptions:
+          - io.github.resilience4j.circuitbreaker.CallNotPermittedException
+      naverClient:
+        baseConfig: default

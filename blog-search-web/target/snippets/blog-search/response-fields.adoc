@@ -1,0 +1,48 @@
+|===
+|Path|Type|Description
+
+|`+contents+`
+|`+Array+`
+|검색 결과
+
+|`+contents[].blogName+`
+|`+String+`
+|블로그 이름
+
+|`+contents[].title+`
+|`+String+`
+|제목
+
+|`+contents[].url+`
+|`+String+`
+|URL
+
+|`+contents[].description+`
+|`+String+`
+|내용
+
+|`+contents[].thumbnail+`
+|`+String+`
+|썸네일
+
+|`+contents[].createdAt+`
+|`+String+`
+|작성일
+
+|`+page+`
+|`+Number+`
+|페이지 번호
+
+|`+size+`
+|`+Number+`
+|페이지 사이즈
+
+|`+totalPage+`
+|`+Number+`
+|총 페이지 수
+
+|`+totalCount+`
+|`+Number+`
+|총 검색 결과 수
+
+|===

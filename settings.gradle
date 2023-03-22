@@ -1,0 +1,8 @@
+rootProject.name = "blog-search"
+include "blog-search-application"
+include "blog-search-web"
+include "blog-search-core"
+include "blog-search-persistence"
+include "open-api-client"
+include "blog-search-entity"
+

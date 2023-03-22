@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 240
+
+{"page":1,"size":10,"totalCount":1,"totalPage":1,"contents":[{"blogName":"Test Blog","title":"Test Title","description":"Test Content","url":"http://example.com","thumbnail":"http://thumbnail.url","createdAt":"2023-03-19T22:01:44.040588"}]}
+----

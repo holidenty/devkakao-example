@@ -1,0 +1,35 @@
+group "com.suhyeon.blogsearch"
+version "0.0.1-SNAPSHOT"
+
+dependencyManagement {
+    imports {
+        mavenBom "io.github.resilience4j:resilience4j-bom:$resilience4jVersion"
+    }
+}
+
+dependencies {
+    // Blog Search
+    implementation project(":blog-search-web")
+    implementation project(":blog-search-core")
+    implementation project(":blog-search-persistence")
+
+    // Spring Boot
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-cache"
+
+    // Caffeine
+    implementation "com.github.ben-manes.caffeine:caffeine:$caffeineVersion"
+
+    // Resilience4j
+    implementation "io.github.resilience4j:resilience4j-spring-boot3"
+
+    // H2
+    runtimeOnly "com.h2database:h2"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar.enabled = true
+bootJar.enabled = true

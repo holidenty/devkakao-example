@@ -1,0 +1,17 @@
+group "com.suhyeon.blogsearch"
+version "0.0.1-SNAPSHOT"
+
+dependencies {
+    // Spring Boot
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+    implementation "org.springframework.boot:spring-boot-starter-cache"
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar.enabled = true
+bootJar.enabled = false

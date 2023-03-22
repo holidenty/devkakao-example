@@ -1,0 +1,43 @@
+plugins {
+    id "java"
+    id "org.springframework.boot" version "$springBootVersion"
+    id "io.spring.dependency-management" version "$springDependencyManagementVersion"
+}
+
+group = "com.suhyeon"
+sourceCompatibility = "17"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
+
+    dependencies {
+        // Spring Boot
+        implementation "org.springframework.boot:spring-boot-starter"
+        implementation "org.springframework.boot:spring-boot-starter-validation"
+        testImplementation "org.springframework.boot:spring-boot-starter-test"
+
+        // Lombok
+        compileOnly "org.projectlombok:lombok"
+        annotationProcessor "org.projectlombok:lombok"
+    }
+}
+
+tasks.named("test") {
+    useJUnitPlatform()
+}
+
+bootJar.enabled = false

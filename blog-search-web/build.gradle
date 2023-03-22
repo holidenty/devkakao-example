@@ -1,0 +1,33 @@
+group "com.suhyeon.blogsearch"
+version "0.0.1-SNAPSHOT"
+
+dependencyManagement {
+    imports {
+        mavenBom "io.github.resilience4j:resilience4j-bom:$resilience4jVersion"
+    }
+}
+
+dependencies {
+    // Blog Search
+    implementation project(":blog-search-core")
+
+    // Spring Boot
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-aop"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+    implementation "org.springframework.data:spring-data-commons"
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+
+    // Resilience4j
+    implementation "io.github.resilience4j:resilience4j-spring-boot3"
+
+    // Springdoc
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bootJar.enabled = false

@@ -1,0 +1,32 @@
+group "com.suhyeon.blogsearch"
+version "0.0.1-SNAPSHOT"
+
+dependencyManagement {
+    imports {
+        mavenBom "io.github.resilience4j:resilience4j-bom:$resilience4jVersion"
+    }
+}
+
+dependencies {
+    // Blog Search
+    implementation project(":blog-search-core")
+    implementation project(":blog-search-entity")
+
+    // Spring Boot
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+
+    // hazelcast
+    implementation "com.hazelcast:hazelcast-spring:$hazelcastVersion"
+
+    // Resilience4j
+    implementation "io.github.resilience4j:resilience4j-spring-boot3"
+
+    //querydsl
+    implementation "com.querydsl:querydsl-jpa:$querydslVersion:jakarta"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bootJar.enabled = false
