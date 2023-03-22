@@ -19,8 +19,6 @@ import com.suhyeon.blogsearch.entity.BlogSearchKeyword;
 import com.suhyeon.blogsearch.persistence.BlogSearchKeywordRepository;
 import com.suhyeon.blogsearch.persistence.BlogSearchPersistenceAdapter;
 
-import jakarta.persistence.EntityManager;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
@@ -36,9 +34,6 @@ class BlogSearchPersistenceAdapterTest {
 
     @Mock
     private BlogSearchKeywordRepository blogSearchKeywordRepository;
-
-    @Mock
-    private EntityManager entityManager;
 
     @BeforeEach
     void setup() {
